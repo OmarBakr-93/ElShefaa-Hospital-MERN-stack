@@ -5,13 +5,13 @@ const DoctorSchema = new mongoose.Schema({
   name: { type: String,
     required: true,
   },
-  password: { type: String,
-    required: true
-  },
   specialization: { type: String,
     required: true
   },
   experience: { type: Number,
+    required: true
+  },
+  description: { type: String,
     required: true
   },
   image :

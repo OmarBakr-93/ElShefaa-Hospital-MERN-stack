@@ -36,6 +36,28 @@ router.post('/add', auth('admin'), upload.single('image'), async (req, res) => {
   }
 });
 
+// Show all departments
+
+router.get('/allDepartments', async (req, res) => {
+  try {
+    const departments = await Department.find();
+    res.status(200).json(departments);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+
+// Count departments
+router.get('/count', async (req, res) => {
+  try {
+    const count = await Department.countDocuments();
+    res.status(200).json({ count });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
 
 module.exports = router;
 

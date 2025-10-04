@@ -13,7 +13,6 @@ const auth = (requiredRole = null) => {
         if (err) {
           return res.status(401).json({ message: 'Token is not valid' });
         } else {
-          console.log(decoded);
           req.user = decoded;
           if (requiredRole && decoded.role !== requiredRole) {
             return res.status(403).json({ message: 'Access denied' });
